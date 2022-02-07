@@ -1,0 +1,16 @@
+{
+  "name": "skin-tone",
+  "version": "1.0.0",
+  "description": "Lab1",
+  "main": "helloworld.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michiel Schipper",
+  "license": "MIT",
+  "dependencies": {
+    "camelcase": "^6.3.0",
+    "express": "^4.17.2",
+    "skin-tone": "^3.0.0"
+  }
+}
