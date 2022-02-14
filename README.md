@@ -1,5 +1,7 @@
 # Blok-Tech
 
+# Week 1
+
 ## Inleiding
 Om er achter te komen wat voor een matching website ik wil gaan maken heb ik gebruik gemaakt van een woordweb. Daarbij heb ik geprobeerd zo veel mogelijk verschillende soorten manieren te bedenken van het koppelen van mensen. Tevens heb ik geprobeert andere manieren van samen brengen te bedenken. Zoals bij mens en dier of bij ouderen en dergelijken. In eerste instantie kwam ik met het idee om mensen te koppelen op basis van een vragenlijst. Echter vond ik dit na de les te simpel en wilde ik graag iets anders bedenken. Daarom heb ik bedacht om een huis genoot zoek app te maken. In Amsterdam/Leiden/Delft wonen er erg veel studenten en zijn studenten vaak op zoek naar een huis genoot of een huis. Het is dan erg belangrijk dat je goed bij elkaar past. Daarom wil ik een app maken waarin mensen een profiel kunnen maken en opzoek kunnen gaan naar een huis met huisgenoten en mensen kunnen een profiel maken van hun hun huis en daarmee anderen kunnen vinden. 
 
@@ -24,6 +26,8 @@ Functies die aanwezig moeten zijn:
 * uitleg van de app 
 * gelikte profiels bekijken 
 * match pagina 
+
+# Week 2
 
 ## license 
 We moesten vandaag gaan besluiten wat voor een license wij graag willen toepassen op onze concepten en code. Ik kies voor Proprietary. Omdat ik mijn idee erg leuk en misschien echt wat mee wil gaan doen. Ik krijg namelijk erg positieve feedback van andere studenten. 
