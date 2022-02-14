@@ -24,3 +24,7 @@ Functies die aanwezig moeten zijn:
 * uitleg van de app 
 * gelikte profiels bekijken 
 * match pagina 
+
+## license 
+We moesten vandaag gaan besluiten wat voor een license wij graag willen toepassen op onze concepten en code. Ik kies voor Proprietary. Omdat ik mijn idee erg leuk en misschien echt wat mee wil gaan doen. Ik krijg namelijk erg positieve feedback van andere studenten. 
+Proprietary. Of all types of software licenses, this is the most restrictive. The idea behind it is that all rights are reserved. It’s generally used for proprietary software where the work may not be modified or redistributed. https://www.synopsys.com/blogs/software-security/5-types-of-software-licenses-you-need-to-understand/
