@@ -11,7 +11,7 @@ Hier zijn mijn 5 Job Stories:
 * Wanneer ik niet precies weet wat ik zoek wil ik dat de app mij suggesties geeft zodat ik zodat het vinden van de juiste persoon(huis) makkelijker wordt. 
 * Wanneer ik weet met wat voor mensen ik samen wil wonen wil ik dat ik op dat soort mensen kan filteren in de app zodat ik niet onnoddig mensen te zien krijg die niet goed bij mij passen. 
 
-## Functies
+## Requirements
 Functies die aanwezig moeten zijn:
 * Aanmaken van profiel persoon
 * Aanmaken van profiel huis
