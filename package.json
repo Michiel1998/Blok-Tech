@@ -1,0 +1,31 @@
+{
+  "name": "michiel_url_oefening",
+  "version": "1.0.0",
+  "description": "Lab1",
+  "main": "helloworld.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michiel Schipper",
+  "license": "MIT",
+  "dependencies": {
+    "camelcase": "^6.3.0",
+    "express": "^4.17.2",
+    "pug": "^3.0.2",
+    "skin-tone": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Michiel1998/Blok-Tech.git"
+  },
+  "keywords": [
+    "michiel",
+    "url",
+    "oefening"
+  ],
+  "bugs": {
+    "url": "https://github.com/Michiel1998/Blok-Tech/issues"
+  },
+  "homepage": "https://github.com/Michiel1998/Blok-Tech#readme"
+}
