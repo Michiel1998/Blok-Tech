@@ -1,6 +1,5 @@
 const express = require('express')
 const camelCase = require('camelcase')
-
 const skinTones = new Map([
 	['none', ''],
 	['white', '🏻'],
