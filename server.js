@@ -1,49 +1,31 @@
+const database = require('./database/db.js')
 const express = require('express')
-const camelCase = require('camelcase')
-const skinTones = new Map([
-	['none', ''],
-	['white', '🏻'],
-	['creamWhite', '🏼'],
-	['lightBrown', '🏽'],
-	['brown', '🏾'],
-	['darkBrown', '🏿']
-])
-
-express.static(root, [options])
-app.use('/static', express.static('public'))
-
 const app = express()
-const port = 3000
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.use(express.static('public'))
+
+app.get('./', async (req, res) => {
+  const allUsers = await database.showUsers()
+
+  res.render('showUsers', {
+    page: 'Users',
+    email: 'michielschipper@gmail.com',
+    uname: 'Michiel',
+    allUsers: 'allUsers',
+  })
 })
 
-app.get('/login', (req, res) => {
-	res.send('Je gaat nu inloggen')
+app.get('/register', (req, res) => {
+	res.render('register')
   })
+  
+  app.post('/register', async (req, res) => {
+    console.log(req.body)
+    const user = {email: req.req, res}
+    await database.registerUser(user);
+    res.send({
+      succes: user.uname,
+    });
+  });
 
-  app.get('/login/registreren', (req, res) => {
-	res.send('Je gaat nu registreren')
-  })
-
-  app.get('/home/:name', (req, res) => {
-	res.send(`Je bent gematched met ${req.params.name}`)
-  })
-
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
-
-app.use(function (req, res) {
-    console.error("Error 404: page nog found");
-});
-
-// console.log(
-//   camelCase('foo-bar')
-// )
-//  console.log(
-//    skinTones
-//  )
-
+  app.listen(3000, () => console.log('Server on, port: 3000'))
