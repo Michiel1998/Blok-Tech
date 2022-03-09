@@ -14,30 +14,26 @@ const app = express();
 const port = 3000;
 let db = null;
 
-// // Middleware
-// app.use(express.static('public'))
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded( {extended: true}))
+// Middleware
+app.use(express.static('public'))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded( {extended: true}))
  
 //  Set Template Engine
 app.set('view engine', 'ejs');
 
-app.get('/', async (req, res) => {
+// Routing
+app.get('/', (req, res) => {
   res.render('index')
 });
 
-app.get('/users', async(req, res) => {
-  const query = {}
-  const users = await db.collection('users').find({}).toArray();
-  res.render('users', {users})
-})
 
-app.get('/users/register',  (req, res) => {
+app.get('/register',  (req, res) => {
   // RENDER PAGE
   res.render('register');
 })
 
-app.post('/users/register', urlencodedParser, async (req, res) => {
+app.post('/register', urlencodedParser, async (req, res) => {
   
   console.log(req.body.name);
   
@@ -47,20 +43,24 @@ app.post('/users/register', urlencodedParser, async (req, res) => {
     email: req.body.email,
     psw: req.body.psw
   }
-
+  
   const users = await db.collection('users').find({}).toArray();
   let title = (users.length == 0) ? 'no users found' : 'users'
-
+  
   // Add user to users list locally
   users.push(user)
   // Add user to MongoDB Database
   await db.collection('users').insertOne(user);
-
+  
   title = 'succesfully registered a new user!'
   res.render('users', {title, users})
-  
 })
 
+app.get('/users', async(req, res) => {
+  const query = {}
+  const users = await db.collection('users').find({}).toArray();
+  res.render('users', {users})
+})
  async function connectDB() {
    const uri = process.env.DB_URI;
    const client = new MongoClient(uri, {
