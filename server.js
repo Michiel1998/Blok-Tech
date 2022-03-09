@@ -34,9 +34,7 @@ app.get('/register',  (req, res) => {
 })
 
 app.post('/register', urlencodedParser, async (req, res) => {
-  
-  console.log(req.body.name);
-  
+
   let user = {
     slug: slug(req.body.name),
     name: req.body.name,
@@ -45,35 +43,29 @@ app.post('/register', urlencodedParser, async (req, res) => {
   }
   
   const users = await db.collection('users').find({}).toArray();
-  let title = (users.length == 0) ? 'no users found' : 'users'
   
   // Add user to users list locally
   users.push(user)
   // Add user to MongoDB Database
   await db.collection('users').insertOne(user);
   
-  title = 'succesfully registered a new user!'
-  res.render('users', {title, users})
+  res.render('discover', {users})
 })
 
-app.get('/users', async(req, res) => {
-  const query = {}
-  const users = await db.collection('users').find({}).toArray();
-  res.render('users', {users})
-})
- async function connectDB() {
-   const uri = process.env.DB_URI;
-   const client = new MongoClient(uri, {
-   useNewUrlParser: true,
-   useUnifiedTopology: true,
-   });
-   try {
-   await client.connect();
-   db = client.db(process.env.DB_NAME);
-   } catch (error) {
-   throw error;
-   }
- }
+async function connectDB() {
+  const uri = process.env.DB_URI;
+
+  const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  });
+  try {
+    await client.connect();
+    db = client.db(process.env.DB_NAME);
+  } catch (error) {
+    throw error;
+  }
+}
 
   app.listen(port, () => {
     console.log(`web server  running on http://localhost:${port}`)

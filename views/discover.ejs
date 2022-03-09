@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('includes/head.ejs') -%>
+</head>
+<body>
+    <% users.forEach(function(user) { %>
+    <article id="profileCard">
+       <section id="cardInfo">
+            <h1><%= user.name %></h1>
+            <h5><%= user.email %></h5>
+            <article id="cardButtons">
+                <button >Dislike</button>
+                <button >Like</button>
+            </article>
+        </section>
+    </article>
+    <% }) %> 
+    <script src="/public/js/profileCards.js"></script>
+</body>
+</html>
