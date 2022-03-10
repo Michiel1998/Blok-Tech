@@ -4,18 +4,18 @@
     <%- include('includes/head.ejs') -%>
 </head>
 <body>
-    <% users.forEach(function(user) { %>
     <article id="profileCard">
        <section id="cardInfo">
-            <h1><%= user.name %></h1>
-            <h5><%= user.email %></h5>
+           <% for (let i = 0; i < users.length; i++) { %>
+            <h1><%= users[i].name %></h1>
+            <h5><%= users[i].email %></h5>
             <article id="cardButtons">
-                <button >Dislike</button>
-                <button >Like</button>
+                <button id="dislike" onclick=<% console.log(users[i].name); %> >Dislike</button> 
+                <button id="like">Like</button>
             </article>
+            <% } %>
         </section>
     </article>
-    <% }) %> 
     <script src="/public/js/profileCards.js"></script>
 </body>
 </html>
