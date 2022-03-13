@@ -4,18 +4,24 @@
     <%- include('includes/head.ejs') -%>
 </head>
 <body>
-    <article id="profileCard">
-       <section id="cardInfo">
-           <% for (let i = 0; i < users.length; i++) { %>
-            <h1><%= users[i].name %></h1>
-            <h5><%= users[i].email %></h5>
-            <article id="cardButtons">
-                <button id="dislike" onclick=<% console.log(users); %> >Dislike</button> 
-                <button id="like">Like</button>
-            </article>
-            <% } %>
+    <% users.forEach(function(user){ %>
+        <%- include('includes/card.ejs', {user: user}); %>
+        <section class="mainButtons">
+
+            <form method="POST" action="/dislike/<%= user._id %>">
+                <button class="dislike">
+                    Dislike
+                </button>
+            </form>
+        
+            <form method="POST" action="/like/<%= user._id %>">
+                <button class="like">
+                    Like
+                </button>
+            </form>
+        
         </section>
-    </article>
-    <script src="/public/js/profileCards.js"></script>
-</body>
+        
+        <% }); %>
+    </body>
 </html>
