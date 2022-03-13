@@ -5,22 +5,22 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     name: {
         type: String,
-        required: [true, "Username is required"]
+        required: [true, "name is required"]
     },
     email: {
         type: String,
-        required: [true,  "Email is required"]
+        required: [true, "email is required"]
     },
     psw: {
         type: String,
-        required: [true, "Password is required"]
+        required: [true, "psw is required"]
     },
     about: {
         type: String,
-        required: [false]
+        required: [true, "about is required"]
     }
 })
 
-const UserModel = mongoose.model("user", UserSchema)
+const UserModel = mongoose.model('usermodel', UserSchema)
 
 module.exports = UserModel;

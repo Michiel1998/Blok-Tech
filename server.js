@@ -6,9 +6,10 @@ const dotenv = require ('dotenv').config();
 const {MongoClient } = require('mongodb');
 const {ObjectId} = require('mongodb');
 const db = require("./config/config.js");
-const UserModel = require('./models/users')
+const UserModel = require('./models/userModel')
 const LikedUserModel = require('./models/likedUsers')
 const mongoose = require("mongoose");
+const res = require('express/lib/response');
 const toId = mongoose.Types.ObjectId;
 let port = process.env.PORT;
 
@@ -20,8 +21,8 @@ const app = express();
 db.connectDb();
 
 const loadUsers = async () => {
-  const usersList = await UserModel.find({}).lean();
-  return usersList;
+  const usersList = await UserModel.find({});
+  return [usersList];
 }
 // Middleware
 app.use(express.static('public'))
@@ -33,7 +34,7 @@ app.set('view engine', 'ejs');
 
 // Routing
 app.get('/', (req, res) => {
-  loadUsers().then(result)
+  loadUsers()
   res.render('index')
 });
 
@@ -41,81 +42,75 @@ app.get('/register',  (req, res) => {
   res.render('register');
 });
 
+app.get('/likedUsers', (req, res) => {
+  res.render('likedUsers');
+});
+
 app.get('/discover', (req, res) => {
   res.render('discover');
 });
 
 app.post('/register', urlencodedParser, async (req, res) => {
+
   let user = {
-    slug: slug(req.body.name),
-    name: req.body.name,
-    email: req.body.email,
-    psw: req.body.psw
+          slug: slug(req.body.name),
+          name: req.body.name,
+          email: req.body.email,
+          about: req.body.about,
+          psw: req.body.psw
   }
-  
-  const users = await UserModel.find({}).lean();
-  
-  // Add user to users list locally
-  users.push(user)
-  // Add user to MongoDB Database
-  await UserModel.insertOne(user);
-  
+
+  const data = new UserModel(user);
+  data.save();
+
+  const users = await UserModel.find({});
+
   res.render('discover', {users})
+
 })
 
 app.post("/like/:id", async (req, res) => {
-  console.log("like");
 
-  try {
-    req.params.id = toId(req.params.id);
+  let id = toId(req.params.id)
 
-    const users = await UserModel.find({}).lean();
-    const likedUser = await UserModel.find().lean();
-    const likedUsers = await LikedUserModel.find({}).lean();
+  // 1. Haal alle users uit de normale user collection
+  const users = await UserModel.find({});
 
-    console.table(likedUser);
-    console.table(users);
-    console.table(likedUsers);
-    
-  } catch (err) {
-    console.log(err);
+  // 2a. Haal de goeie user op basis van id uit de users collection
+  const data = await UserModel.findById(id);
+  console.table(data.name)
+  let likedUser = {
+    name: data.name,
+    email: data.email,
+    about: data.about,
+    psw: data.psw
   }
 
-  // const users = await LikedUsers.find({}).toArray();
-  // const likedUsers = LikedUserModel.find({}).toArray();
+  // 2b. Zet de user op basis van id in de likedUsers collection
+  const likedUsers = LikedUserModel(likedUser)
+  likedUsers.save();
 
-  // console.log(data.name);
+  // 3. Verwijder de user op basis van id uit de normal users collection
+  const deleteUser = await UserModel.deleteOne(likedUser)
 
-  // let likedUser = {
-  //   _id: data._id,
-  //   name: data.name,
-  //   email: data.email,
-  //   psw: data.psw
-  // }
-  
-  // likedUsers.push(likedUser);
-  // await LikedUserModel.insertOne(likedUser)
-
-  // try {    
-  //   console.log('DELETING USER');
-  //   await UserModel.deleteOne({_id: ObjectId(likedUser._id)});
-  // } catch (error) {
-  //   console.log(error);
-  // }
-
-
-  // res.render('register', {users})
+  // 4. Render de pagina met normale users
+  res.render('discover', {users})
 });
 
 app.post("/dislike/:id", async (req, res) => {
-  console.log("like");
+  let id = toId(req.params.id)
 
-  try {
-   const deleteUser = await likedUser.delete();
-    
-  } catch (err) {
-    console.log(err);
-  }
+  // 1. Haal alle users uit de normale user collection
+  const users = await UserModel.find({});
+
+  // 2. Haal de goeie user op basis van id uit de users collection
+  const likedUser = await UserModel.findById(id);
+
+  // 3. Verwijder de user op basis van id uit de normal users collection
+  const deleteUser = await UserModel.deleteOne(likedUser)
+
+  // 4. Render de pagina met normale users
+  res.render('discover', {users})
 });
 
 app.listen(port, () => console.log(`App listening to port ${port}`));

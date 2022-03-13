@@ -1,3 +1,19 @@
-<h1><%= user.name %></h1>
-<h3><%= user.email %></h3>
-<p><%= user.about %></p>
+<article id="profileCard">
+    <h1 class="profileEmoji">👩🏼</h1> 
+    <h2><%= user.name %></h2>
+    <h3>"<%= user.about %>"</h3>
+    <h5><%= user.email %></h5>
+    <section class="mainButtons">
+        <form method="POST" action="/dislike/<%= user._id %>">
+            <button class="dislike">
+                ❌
+            </button>
+        </form>
+        
+        <form method="POST" action="/like/<%= user._id %>">
+            <button class="like">
+                ❤️
+            </button>
+        </form>
+    </section>
+</article>
