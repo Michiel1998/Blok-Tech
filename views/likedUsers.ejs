@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%- include('includes/head.ejs') -%>
-</head>
-<body>
+  </head>
+  <body>
     <section class="navigationButtons">
-        <form methord="post" action="/discover">
-            <button class="seeLikes">Back to all</button>
-        </form>
+      <form methord="post" action="/discover">
+        <button class="seeLikes">Back to all</button>
+      </form>
     </section>
-    <% users.forEach(function(user){ %>
-        <%- include('includes/card.ejs', {user: user}); %>
-        
-        
-        <% }); %>
-     
-    
-    </body>
+    <% users.forEach(function(user){ %> <%- include('includes/card.ejs', {user:
+    user}); %> <% }); %>
+  </body>
 </html>

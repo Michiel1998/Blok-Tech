@@ -1,25 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%- include('includes/head.ejs') -%>
-</head>
-<body>
+  </head>
+  <body>
     <form id="registerForm" action="/register" method="post">
-        <h1>Registreer</h1>
-        <label><b>Email-adres</b></label>
-        <input id="email" type="text" placeholder="Email-adres" name="email">
-        <p id="emailWarning"></p>
-        <label><b>Gebruikersnaam</b></label>
-        <input id="name" type="text" placeholder="Gebruikersnaam" name="name" required>
-        <label><b>Over jou</b></label>
-        <input id="name" type="text" placeholder="Over jou" name="about" required>
-        <p id="unameWarning"></p>
-        <label><b>Wachtwoord</b></label>
-        <input id="psw" type="password" placeholder="Wachtwoord" name="psw"
-        title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
-        <p id="pswWarning"></p>
+      <h1>Registreer</h1>
+      <label><b>Email-adres</b></label>
+      <input
+        id="email"
+        type="text"
+        placeholder="Email-adres"
+        name="email"
+        required
+      />
+      <p id="emailWarning"></p>
+      <label><b>Gebruikersnaam</b></label>
+      <input
+        id="name"
+        type="text"
+        placeholder="Gebruikersnaam"
+        name="name"
+        required
+      />
+      <p id="naamWarning"></p>
+      <label><b>Over jou</b></label>
+      <input
+        id="name"
+        type="text"
+        placeholder="Schrijf iets over jezelf"
+        name="about"
+        required
+      />
+      <p id="unameWarning"></p>
+      <label><b>Wachtwoord</b></label>
+      <input
+        id="psw"
+        type="password"
+        placeholder="Wachtwoord"
+        name="psw"
+        required
+        title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
+      />
+      <p id="pswWarning"></p>
 
-        <button id="registerButton" type="submit" class="mainButton">Registreer</button>
+      <button class="registerButton" type="submit">Registreer</button>
     </form>
-</body>
+  </body>
 </html>

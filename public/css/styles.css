@@ -1,128 +1,147 @@
 #registerForm {
-    display: inline-block;
-    margin: 10% auto auto auto;
-    text-align: left;
-    width: 450px;
-    height: 500px;
-    padding: 80px 0 0 50px;
+  display: inline-block;
+  margin: 10% auto 50% auto;
+  text-align: left;
+  width: 350px;
+  height: 200px;
+  padding: 80px 0 20px 50px;
 }
 
 body {
-    display: block;
-    text-align: center;
-    font-family: "Avenir Next", sans-serif;
+  display: block;
+  text-align: center;
+  font-family: "Avenir Next", sans-serif;
 }
 
 #homePage img {
-    width: 100%;
-    margin-top: 5rem;
-    padding-bottom: 2rem;
+  width: 100%;
+  margin-top: 5rem;
+  padding-bottom: 2rem;
 }
 
 label {
-    text-align: left;
-    font-weight: lighter;
+  text-align: left;
+  font-weight: lighter;
+  margin: 20% auto 50% auto;
 }
 
 p {
-    color: red;
-    font-size: 12px;
-    font-weight: bold;
+  color: red;
+  font-size: 12px;
+  font-weight: bold;
 }
+
+.registerButton {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  background-color: #fe2c54;
+  border-radius: 8px;
+  border: none;
+  padding: 1rem 7rem;
+  margin: 4rem 0 0 -1rem;
+}
+
 .mainButton {
-    font-size: 1.3rem;
-    font-weight: bold;
-    color:white;
-    background-color: #fe2c54;
-    border-radius: 8px;
-    border: none;
-    padding: 1rem 7rem;
-    margin-top: 12rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  background-color: #fe2c54;
+  border-radius: 8px;
+  border: none;
+  padding: 1rem 7rem;
+  margin-top: 12rem;
 }
 
 .mainButton:hover {
-    cursor: pointer;
-    background-color: #f75f78;
+  cursor: pointer;
+  background-color: #f75f78;
 }
 
-input[type=text], input[type=password] {
-    width: 85%;
-    padding: 12px 12px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+input[type="text"],
+input[type="password"] {
+  width: 85%;
+  padding: 12px 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
 #aboutMe textarea {
-    border: 2px solid #f75f78;
-    border-radius: 10px;
+  border: 2px solid #f75f78;
+  border-radius: 10px;
 }
 
 #profileCard {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    background-color: rgb(167, 198, 245);
-    border: 1px solid black;
+  width: 90%;
+  margin-left: 5%;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffe6e6;
+  border: none;
+  border: 3px solid #f7524f;
+}
+
+#profileCard img {
+  width: 50%;
+  margin: 5%;
 }
 
 #profileCard h1 {
-    max-height: 100px;
+  max-height: 100px;
 }
 
 .mainButtons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .dislike,
 .like {
-    font-family: "Avenir Next", sans-serif;
-    font-size: 2rem;
-    color: aliceblue;
-    padding: 1rem;
-    background-color: rgb(238, 243, 255);
-    border: none;
-    border-radius: 50%;
+  margin-top: 15%;
+  font-family: "Avenir Next", sans-serif;
+  font-size: 1rem;
+  color: rgb(250, 61, 48);
+  padding: 1rem;
+  border: none;
 }
 .dislike:hover {
-    padding: 1rem;
-    background-color: #f7524f;
+  padding: 1rem;
+  background-color: #f7524f;
 }
 
 .like:hover {
-    padding: 1rem;
-    background-color: #8aef99;
-}
-
-.navigationButtons {
-    background-color: #ccc;
+  padding: 1rem;
+  background-color: #8aef99;
 }
 
 .seeLikes {
-    padding: 1rem;
-    background-color: #f75f78;
-    border: none;
-    border-radius: 0.2rem;
-    margin: 1rem;
-}
-
-.profileEmoji {
-    font-size: 11rem;
+  padding: 1rem;
+  background-color: #fe2c54;
+  border: none;
+  border-radius: 0.2rem;
+  margin: 1rem;
 }
 
 #profileCard h2 {
-    font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 
 #profileCard h3 {
-    font-size: 1.6em;
+  font-weight: normal;
+  font-size: 1.2em;
 }
 
 #profileCard h5 {
-    color: blue;
-    font-size: 1rem;
-    text-decoration: underline;
+  color: blue;
+  font-size: 1rem;
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+.accountDeleted {
+  margin-top: 80%;
 }

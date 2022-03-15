@@ -1,7 +1,7 @@
 {
-  "name": "michiel_url_oefening",
+  "name": "michiel_schipper_bloktech",
   "version": "1.0.0",
-  "description": "Lab1",
+  "description": "Blok-Tech",
   "main": "helloworld.js",
   "scripts": {
     "start": "node server.js",
@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "array-back": "^6.2.2",
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.2",
     "camelcase": "^6.3.0",
     "dotenv": "^16.0.0",

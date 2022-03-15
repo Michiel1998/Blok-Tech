@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%- include('includes/head.ejs') -%>
-</head>
-<body>
-    <section class="navigationButtons">
-        <form methord="post" action="/likedUsers" <% users %> >
-            <button class="seeLikes">See likes</button>
-        </form>
-    </section>
-    <% users.forEach(function(user){ %>
-        <%- include('includes/card.ejs', {user: user}); %>
-        
-        
-        <% }); %>
-     
-    
-    </body>
+  </head>
+  <body>
+    <h1 id="accountCreated">
+      Jij hebt een account aangemaakt met deze gegevens!
+    </h1>
+    <!-- <section class="navigationButtons">
+            <form method="post" action="/likedUsers" >
+                <button class="seeLikes">See likes</button>
+            </form>
+        </section> -->
+    <%- include('includes/card.ejs', {data}); %>
+  </body>
 </html>

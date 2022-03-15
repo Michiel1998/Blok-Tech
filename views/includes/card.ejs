@@ -1,19 +1,18 @@
 <article id="profileCard">
-    <h1 class="profileEmoji">👩🏼</h1> 
-    <h2><%= user.name %></h2>
-    <h3>"<%= user.about %>"</h3>
-    <h5><%= user.email %></h5>
+    <img src="/assets/profileImage.png" alt="profileImage">
+    <h2><%= data.name %></h2>
+    <h3>"<%= data.about %>"</h3>
+    <h5><%= data.email %></h5>
     <section class="mainButtons">
-        <form method="POST" action="/dislike/<%= user._id %>">
+        <form method="POST" action="/dislike/<%= data._id %>">
             <button class="dislike">
-                ❌
+                ❌ Verwijder Account
             </button>
         </form>
-        
-        <form method="POST" action="/like/<%= user._id %>">
+        <!-- <form method="POST" action="/like/<%= data._id %>">
             <button class="like">
                 ❤️
-            </button>
+            </button> -->
         </form>
     </section>
 </article>
