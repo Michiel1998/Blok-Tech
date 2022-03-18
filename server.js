@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const slug = require("slug");
-const arrayBack = require("array-back");
+const slug = require("slug"); //url in opdelen met streepjes en duidelijke elementen
+const arrayBack = require("array-back"); //laatste element in array
 const dotenv = require("dotenv").config();
 const { MongoClient } = require("mongodb");
 const { ObjectId } = require("mongodb");
@@ -13,6 +13,8 @@ const res = require("express/lib/response");
 const toId = mongoose.Types.ObjectId;
 let port = process.env.PORT;
 
+
+// Returns middleware welke alleen url encoded zijn en kijkt alleen naar request waar de header met de optie matched.
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 console.log(process.env.TESTVAR);
@@ -26,7 +28,9 @@ const loadUsers = async () => {
 };
 // Middleware
 app.use(express.static("public"));
+// parst formulier data zodat het in de req.body als JSON beschikbaar is
 app.use(bodyParser.json());
+// bodyparser zorgt er voor dat die beschikbaar is voor de request in req.body
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //  Set Template Engine
@@ -60,6 +64,7 @@ app.post("/register", urlencodedParser, async (req, res) => {
     name: req.body.name,
     email: req.body.email,
     about: req.body.about,
+    drink: req.body.drink,
     psw: req.body.psw,
   };
 
@@ -113,5 +118,12 @@ app.post("/dislike/:id", async (req, res) => {
   // 4. Render de pagina met normale users
   res.render("accountDeleted", { userToBeRemoved });
 });
+
+
+app.get ('*', function (req, res){
+  res.send("cannot find page ERROR 404", 404)
+
+});
+
 
 app.listen(port, () => console.log(`App listening to port ${port}`));

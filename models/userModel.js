@@ -12,6 +12,10 @@ const UserSchema = new Schema({
     type: String,
     required: [true, "email is required"],
   },
+  drink: {
+    type: String,
+    required: [false, "drink is required"],
+  },
   psw: {
     type: String,
     required: [true, "psw is required"],
