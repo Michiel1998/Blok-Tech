@@ -1,7 +1,7 @@
 
 
 // Validation for username
-const unameInput = document.getElementById('uname');
+const unameInput = document.getElementById('name');
 unameInput.addEventListener('keyup', showUnameWarning);
 function showUnameWarning () {
     let input = unameInput.value;
@@ -26,12 +26,8 @@ function showPswWarning() {
     }
 }
 
-window.attachEvent('onload', showRegister());
 
-document.getElementById("alAccount").onclick = function () {
-  myFunction();
-};
-
+//connect api 
 function myFunction() {
   document.getElementById("login-form").classList.toggle("show");
 }
@@ -43,6 +39,7 @@ async function getRandomCocktail() {
   showCocktail(cocktail)
 }
 
+//insert random cocktail in text field
 function showCocktail(cocktail) {
   let cocktailTextField = document.querySelector(".cocktailTextField");
 
@@ -50,12 +47,13 @@ function showCocktail(cocktail) {
   cocktailTextField.value = cocktailName
 }
 
-
+// show login hide register
 function showLogin() {
   document.getElementById("loginForm").style.display="block";
   document.getElementById("registerForm").style.display="none";
 }
 
+// show register hide login
 function showRegister() {
   document.getElementById("loginForm").style.display="none";
   document.getElementById("registerForm").style.display="block";

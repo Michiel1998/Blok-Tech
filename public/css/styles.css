@@ -1,3 +1,12 @@
+:root {
+  --red: #fe2c54;
+  --white: #ffffff;
+  --background: #ffe6e6;
+  --like: #8aef99;
+  --profile: blue;
+
+}
+
 #registerForm {
   display: inline-block;
   margin: 10% auto 50% auto;
@@ -35,7 +44,7 @@ label {
 }
 
 p {
-  color: red;
+  color: var(--red);
   font-size: 12px;
   font-weight: bold;
 }
@@ -43,8 +52,8 @@ p {
 .registerButton {
   font-size: 1.3rem;
   font-weight: bold;
-  color: white;
-  background-color: #fe2c54;
+  color: var(--white);
+  background-color: var(--red);
   border-radius: 8px;
   border: none;
   padding: 1rem 7rem;
@@ -54,8 +63,8 @@ p {
 .loginButton {
   font-size: 1.3rem;
   font-weight: bold;
-  color: white;
-  background-color: #fe2c54;
+  color: var(--white);
+  background-color: var(--red);
   border-radius: 8px;
   border: none;
   padding: 1rem 7rem;
@@ -65,8 +74,8 @@ p {
 .mainButton {
   font-size: 1.3rem;
   font-weight: bold;
-  color: white;
-  background-color: #fe2c54;
+  color: var(--white);
+  background-color: var(--red);
   border-radius: 8px;
   border: none;
   padding: 1rem 7rem;
@@ -75,20 +84,20 @@ p {
 
 .mainButton:hover {
   cursor: pointer;
-  background-color: #f75f78;
+  background-color: var(--red);
 }
 
 .generateCocktail {
   font-weight: bold;
-  color: white;
-  background-color: #fe2c54;
+  color: var(--white);
+  background-color: var(--red);
   border-radius: 1px;
   border: none;
   
 }
 
 .switchForm {
-  background-color: white;
+  background-color: var(--white);
   border: none;
   text-decoration: underline;
   margin: 5% auto auto 15%;
@@ -105,7 +114,7 @@ input[type="password"] {
 }
 
 #aboutMe textarea {
-  border: 2px solid #f75f78;
+  border: 2px solid var(--red);
   border-radius: 10px;
 }
 
@@ -115,9 +124,9 @@ input[type="password"] {
   height: 600px;
   position: relative;
   overflow: hidden;
-  background-color: #ffe6e6;
+  background-color: var(--background);
   border: none;
-  border: 3px solid #f7524f;
+  border: 3px solid var(--red);
 }
 
 #profileCard img {
@@ -140,23 +149,23 @@ input[type="password"] {
   margin-top: 15%;
   font-family: "Avenir Next", sans-serif;
   font-size: 1rem;
-  color: rgb(250, 61, 48);
+  color: var(--red);
   padding: 1rem;
   border: none;
 }
 .dislike:hover {
   padding: 1rem;
-  background-color: #f7524f;
+  background-color: var(--red);
 }
 
 .like:hover {
   padding: 1rem;
-  background-color: #8aef99;
+  background-color: var(--like);
 }
 
 .seeLikes {
   padding: 1rem;
-  background-color: #fe2c54;
+  background-color: var(--red);
   border: none;
   border-radius: 0.2rem;
   margin: 1rem;
@@ -172,7 +181,7 @@ input[type="password"] {
 }
 
 #profileCard h5 {
-  color: blue;
+  color: var(--profile);
   font-size: 1rem;
   font-weight: normal;
   text-decoration: underline;
